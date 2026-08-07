@@ -1,0 +1,78 @@
+:root {
+  --accent: #2c6e91;
+  --bg: #1D1E20;
+  --text: #BEBEC3;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  line-height: 1.5;
+}
+
+header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+nav li.active a {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.card img,
+.masonry-grid img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+.masonry-grid {
+  columns: 3;
+  column-gap: 1rem;
+}
+
+.masonry-grid img {
+  margin-bottom: 1rem;
+  break-inside: avoid;
+}
+
+dl.metadata {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 1rem 0;
+}
+
+dl.metadata dt {
+  font-weight: 600;
+  color: #555;
+}

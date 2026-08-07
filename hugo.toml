@@ -1,0 +1,30 @@
+baseURL = "https://t3ddygeocache.github.io/microscopy-portfolio/"
+title = "Alex's Microscopy Portfolio"
+languageCode = "en-gb"
+
+# Enable image processing cache between builds
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
+
+[taxonomies]
+  tag = "tags"
+  stain = "stains"
+
+[menu]
+  [[menu.main]]
+    name = "Slides"
+    url = "/slides/"
+    weight = 1
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 2
+  [[menu.main]]
+    name = "Gallery"
+    url = "/gallery/"
+    weight = 3
+
+[params]
+  author = "Alex"
+  description = "Home microscopy: prepared slide collection, imaging projects, and gallery."

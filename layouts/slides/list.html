@@ -1,0 +1,15 @@
+{{ define "main" }}
+<h2>Slides</h2>
+<div class="grid">
+  {{ range .Pages.ByTitle }}
+  <a href="{{ .RelPermalink }}" class="card">
+    {{ with .Resources.GetMatch "*.jpg" }}
+      {{ $thumb := .Fill "400x300" }}
+      <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}">
+    {{ end }}
+    <h3>{{ .Title }}</h3>
+    <p>{{ .Params.stain }} &middot; {{ .Params.technique }}</p>
+  </a>
+  {{ end }}
+</div>
+{{ end }}

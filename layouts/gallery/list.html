@@ -1,0 +1,13 @@
+{{ define "main" }}
+<h2>Gallery</h2>
+<div class="masonry-grid">
+  {{ range .Pages.ByDate.Reverse }}
+  <a href="{{ .RelPermalink }}">
+    {{ with .Resources.GetMatch "*.jpg" }}
+      {{ $img := .Fill "500x500" }}
+      <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}">
+    {{ end }}
+  </a>
+  {{ end }}
+</div>
+{{ end }}

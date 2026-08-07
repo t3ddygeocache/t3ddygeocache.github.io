@@ -1,0 +1,10 @@
+{{ define "main" }}
+<h2>Projects</h2>
+<ul class="project-list">
+  {{ range .Pages.ByDate.Reverse }}
+  <a href="{{ .RelPermalink }}"><h3>{{ .Title }}</h3></a>
+    <p>{{ .Params.summary }}</p>
+    <p class="meta">{{ .Date.Format "January 2006" }}</p>
+  {{ end }}
+</ul>
+{{ end }}

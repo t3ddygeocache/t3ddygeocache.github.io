@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section class="intro">
+  {{ .Content }}
+</section>
+
+<section class="featured">
+  <h2>Recent</h2>
+  <div class="grid">
+    {{ $recent := (union (first 3 (where .Site.RegularPages "Section" "slides")) (first 3 (where .Site.RegularPages "Section" "gallery"))).ByDate.Reverse }}
+    {{ range $recent }}
+      <a href="{{ .RelPermalink }}">
+        {{ with .Resources.GetMatch "*.jpg" }}
+          {{ $thumb := .Fill "300x300" }}
+          <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}">
+        {{ end }}
+        <p>{{ .Title }}</p>
+      </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

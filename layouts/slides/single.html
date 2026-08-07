@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article>
+  <h2>{{ .Title }}</h2>
+  <dl class="metadata">
+    <dt>Technique</dt><dd>{{ .Params.technique }}</dd>
+    <dt>Stain</dt><dd>{{ .Params.stain }}</dd>
+    <dt>Objective</dt><dd>{{ .Params.objective }}</dd>
+    {{ with .Params.pixel_size_nm }}<dt>Pixel size</dt><dd>{{ . }} nm</dd>{{ end }}
+    {{ with .Params.catalogue_id }}<dt>Catalogue ID</dt><dd>{{ . }}</dd>{{ end }}
+  </dl>
+
+  <div class="gallery">
+    {{ range .Resources.ByType "image" }}
+      {{ $img := .Fill "800x600" }}
+      <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}">
+    {{ end }}
+  </div>
+
+  {{ .Content }}
+</article>
+{{ end }}
