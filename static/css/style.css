@@ -56,8 +56,10 @@ main {
 }
 
 .masonry-grid {
-  columns: 3;
-  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 0.25rem;
+  align-items: start;   /* prevents rows stretching to match the tallest image */
 }
 
 .masonry-grid img {
@@ -75,4 +77,13 @@ dl.metadata {
 dl.metadata dt {
   font-weight: 600;
   color: #555;
+}
+
+img {
+  display: block;
+  width: 75%;
+  max-width: 75%;
+  height: auto;
+  margin: 2rem auto;
+  margin-bottom: 0;
 }

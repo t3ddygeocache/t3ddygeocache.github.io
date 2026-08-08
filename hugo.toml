@@ -28,3 +28,10 @@ languageCode = "en-gb"
 [params]
   author = "Alex"
   description = "Home microscopy: prepared slide collection, imaging projects, and gallery."
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
