@@ -8,14 +8,14 @@
     {{ with .Params.pixel_size_nm }}<dt>Pixel size</dt><dd>{{ . }} nm</dd>{{ end }}
     {{ with .Params.catalogue_id }}<dt>Catalogue ID</dt><dd>{{ . }}</dd>{{ end }}
   </dl>
-
+<!--
   <div class="gallery">
     {{ range .Resources.ByType "image" }}
       {{ $img := .Fill "800x600" }}
       <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}">
     {{ end }}
   </div>
-
+-->
   {{ .Content }}
 </article>
 {{ end }}
