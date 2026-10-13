@@ -78,7 +78,7 @@ nav li.active a {
 
 /* Main Layout Container */
 main {
-  max-width: 900px;
+  max-width: 65%;
   margin: 0 auto;
   padding: 2rem 1.5rem;
 }
