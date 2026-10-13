@@ -1,9 +1,26 @@
 {{ define "main" }}
 <h2>Projects</h2>
-<ul class="project-list">
+<div class="grid-large">
   {{ range .Pages.ByDate.Reverse }}
-  <a href="{{ .RelPermalink }}"><h3>{{ .Title }}</h3></a>
-    <p>{{ .Params.summary }}</p>
+    <div class="card">
+      <a href="{{ .RelPermalink }}">
+        {{ $featured := .Params.featured_image }}
+        {{ with .Resources.GetMatch $featured }}
+          {{ $thumb := .Fill "800x450" }}
+          <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+        {{ else }}
+          {{/* Optional fallback: grab the first jpg if featured_image isn't set */}}
+          {{ with .Resources.GetMatch "*.jpg" }}
+            {{ $thumb := .Fill "800x450" }}
+            <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+          {{ end }}
+        {{ end }}
+        <h3>{{ .Title }}</h3>
+        {{ with .Params.summary }}
+          <p>{{ . }}</p>
+        {{ end }}
+      </a>
+    </div>
   {{ end }}
-</ul>
+</div>
 {{ end }}

@@ -1,15 +1,24 @@
 {{ define "main" }}
 <h2>Slides</h2>
-<div class="grid">
+<div class="grid-large">
   {{ range .Pages.ByTitle }}
-  <a href="{{ .RelPermalink }}" class="card">
-    {{ with .Resources.GetMatch "*.jpg" }}
-      {{ $thumb := .Fill "400x300" }}
-      <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}">
-    {{ end }}
-    <h3>{{ .Title }}</h3>
-    <p>{{ .Params.stain }} &middot; {{ .Params.technique }}</p>
-  </a>
+    <div class="card">
+      <a href="{{ .RelPermalink }}">
+        {{ with .Resources.GetMatch "*.jpg" }}
+          {{ $thumb := .Fill "400x300" }}
+          <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+        {{ else }}
+          {{ with .Resources.GetMatch "*.png" }}
+            {{ $thumb := .Fill "400x300" }}
+            <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+          {{ end }}
+        {{ end }}
+        <h3>{{ .Title }}</h3>
+        {{ if or .Params.stain .Params.technique }}
+          <p>{{ with .Params.stain }}{{ . }}{{ end }}{{ if and .Params.stain .Params.technique }} &middot; {{ end }}{{ with .Params.technique }}{{ . }}{{ end }}</p>
+        {{ end }}
+      </a>
+    </div>
   {{ end }}
 </div>
 {{ end }}

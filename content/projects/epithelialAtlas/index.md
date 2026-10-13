@@ -4,6 +4,7 @@ date: 2026-08-06T22:29:11+01:00
 draft: false
 summary: ""
 tags: []
+featured_image: "thumbnail.png"
 ---
 
 Surface epithelial cells are divided into two broad categories: simple epithelia and stratified epithelia. These are further divided into simple squamous, simple cuboidal, simple columnar and pseudostratified epithelia, and stratified squamous, stratified cuboidal and transitional epithelia.

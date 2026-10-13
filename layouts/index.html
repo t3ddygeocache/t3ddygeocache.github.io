@@ -8,13 +8,20 @@
   <div class="grid">
     {{ $recent := (union (first 3 (where .Site.RegularPages "Section" "slides")) (first 3 (where .Site.RegularPages "Section" "gallery"))).ByDate.Reverse }}
     {{ range $recent }}
-      <a href="{{ .RelPermalink }}">
-        {{ with .Resources.GetMatch "*.jpg" }}
-          {{ $thumb := .Fill "300x300" }}
-          <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}">
-        {{ end }}
-        <p>{{ .Title }}</p>
-      </a>
+      <div class="card">
+        <a href="{{ .RelPermalink }}">
+          {{ with .Resources.GetMatch "*.jpg" }}
+            {{ $thumb := .Fill "300x300" }}
+            <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+          {{ else }}
+            {{ with .Resources.GetMatch "*.png" }}
+              {{ $thumb := .Fill "300x300" }}
+              <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+            {{ end }}
+          {{ end }}
+          <h4>{{ .Title }}</h4>
+        </a>
+      </div>
     {{ end }}
   </div>
 </section>

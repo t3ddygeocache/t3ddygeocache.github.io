@@ -1,13 +1,21 @@
 {{ define "main" }}
 <h2>Gallery</h2>
-<div class="masonry-grid">
+<div class="grid-large">
   {{ range .Pages.ByDate.Reverse }}
-  <a href="{{ .RelPermalink }}">
-    {{ with .Resources.GetMatch "*.png" }}
-      {{ $img := .Fill "500x500" }}
-      <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}">
-    {{ end }}
-  </a>
+    <div class="card">
+      <a href="{{ .RelPermalink }}">
+        {{ with .Resources.GetMatch "*.png" }}
+          {{ $img := .Fill "800x800" }}
+          <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+        {{ else }}
+          {{ with .Resources.GetMatch "*.jpg" }}
+            {{ $img := .Fill "800x800" }}
+            <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+          {{ end }}
+        {{ end }}
+        <h4>{{ .Title }}</h4>
+      </a>
+    </div>
   {{ end }}
 </div>
 {{ end }}
