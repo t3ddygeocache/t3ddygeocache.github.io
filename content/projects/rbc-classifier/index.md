@@ -1,6 +1,6 @@
 ---
 title: "A Machine Learning RBC Classifier"
-date: 2026-11-04T13:01:11+00:00
+date: 2026-11-04T14:21:52Z
 draft: false
 summary: "Used Chula-RBC-12 to tune Cyto3 and tested the model against my own slides"
 tags: []

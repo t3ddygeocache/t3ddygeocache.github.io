@@ -1,6 +1,6 @@
 ---
 title: "Elodea"
-date: 2026-10-13T17:48:57+01:00
+date: 2026-11-04T14:21:52Z
 draft: false
 technique: "Oil immersion"
 stain: "None"
