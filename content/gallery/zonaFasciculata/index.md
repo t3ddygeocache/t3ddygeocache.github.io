@@ -5,3 +5,4 @@ draft: false
 tags: [brightfield, histology, adrenal gland]
 ---
 Brightfield illumination of the zona fasciculata of a human adrenal gland at x10 magnification. With H&E staining, the spongiocytes are very distinct, with lipid droplets producing a foamy-appearing cytoplasm. This area of the adrenal gland produces glucocorticoids such as cortisol, regulated by the HPA axis via ACTH.
+13MP mosaic using Fiji pairwise stitching, 3MP panels, deconvolution using RL 10.

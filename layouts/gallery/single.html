@@ -3,7 +3,8 @@
   <h2>{{ .Title }}</h2>
   {{ range .Resources.ByType "image" }}
     {{ $img := .Fit "1200x1200" }}
-    <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}">
+    <img src="{{ $img.RelPermalink }}" alt="{{ $.Title }}">\
+    <br>
   {{ end }}
   {{ .Content }}
 </article>
